@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "306207241842",
+    "firebase_url": "https://ratio1618-10c7d.firebaseio.com",
+    "project_id": "ratio1618-10c7d",
+    "storage_bucket": "ratio1618-10c7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306207241842:android:7d82e33bd17e85aeb7f4eb",
+        "android_client_info": {
+          "package_name": "com.example.android.overheadtankmonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "306207241842-5481uf5big43jlq5u82o3agccffnh4fc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.overheadtankmonitor",
+            "certificate_hash": "12748d4e26d98db3eef1f67fbf040f160122bf0e"
+          }
+        },
+        {
+          "client_id": "306207241842-4qmsm31kmfn3no9j4q3gc0mmpsaflufn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr5fVHjEkRw1GyYWL7DoTvAiJ2hYFsuGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "306207241842-4qmsm31kmfn3no9j4q3gc0mmpsaflufn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

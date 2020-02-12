@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Overhead Tank Monitor</string>
+    <string name="notification_activity">NotificationView</string>
 </resources>
