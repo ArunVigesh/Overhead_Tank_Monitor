@@ -2,21 +2,17 @@ package com.example.android.overheadtankmonitor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
+
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,10 +35,6 @@ public class MainActivity extends AppCompatActivity {
         final TextView statuss2=findViewById(R.id.statustank2);
         final TextView motors1= findViewById(R.id.textView3);
         final TextView motors2=findViewById(R.id.textView4);
-        /*final Button m11=findViewById(R.id.button);
-        final Button m12=findViewById(R.id.button2);
-        final Button m21=findViewById(R.id.button3);
-        final Button m22=findViewById(R.id.button4);*/
         final ImageView low11=findViewById(R.id.imageView4);
         final ImageView low12=findViewById(R.id.imageView6);
         final ImageView low21=findViewById(R.id.imageView5);
@@ -61,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
+
                 value = dataSnapshot.getValue(data.class);
                 Log.d("TAG", "S1 Value is: " + value.getStatus1());
                 Log.d("TAG", "S2 Value is: " + value.getStatus2());
@@ -83,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     high11.setVisibility(View.GONE);
                     high12.setVisibility(View.GONE);
                     database.getReference("motor1").setValue(1);
-                    addNotification();
+
 
                 }
                 else if(s1==1)
@@ -120,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                     high21.setVisibility(View.GONE);
                     high22.setVisibility(View.GONE);
                     database.getReference("motor2").setValue(1);
-                    addNotification();
+
                 }
                 else if(s2==1)
                 {
@@ -173,53 +164,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
-        /*m11.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                database.getReference("motorbutton1").setValue(1);
-            }
-        });
-        m12.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                database.getReference("motorbutton1").setValue(0);
-            }
-        });
-        m21.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                database.getReference("motorbutton2").setValue(1);
-            }
-        });
-        m22.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                database.getReference("motorbutton2").setValue(0);
-            }
-        });*/
     }
-    private void addNotification() {
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.apptank) //set icon for notification
-                        .setContentTitle("Notifications") //set title of notification
-                        .setContentText("Motor ON")//this is notification message
-                        .setAutoCancel(true) // makes auto cancel of notification
-                        .setPriority(NotificationCompat.PRIORITY_DEFAULT); //set priority of notification
 
-
-        Intent notificationIntent = new Intent(this, Notification.class);
-        notificationIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        //notification message will get at NotificationView
-        notificationIntent.putExtra("message", "Motor ON");
-
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-        builder.setContentIntent(pendingIntent);
-
-        // Add as notification
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify(0, builder.build());
-    }
 }
